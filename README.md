@@ -2,6 +2,11 @@
 
 This is a repo of Scala csv processor.
 
+## Setup
+
+- create a folder named `csv`
+- put csv files into this folder
+
 ## Run the app
 
 ```shell
