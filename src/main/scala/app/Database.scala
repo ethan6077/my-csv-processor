@@ -6,7 +6,6 @@ import app.models.PersonalDetail.PersonalDetailType
 import app.models.ResidentialAddress.ResidentialAddressType
 import app.models.{EmploymentDetail, IncomeDetail, PersonalDetail, ResidentialAddress}
 import cats.effect.IO
-import cats.effect.std.Env
 import cats.effect.unsafe.implicits.global
 import cats.implicits.catsSyntaxTuple4Semigroupal
 import com.github.javafaker.Faker
@@ -26,7 +25,6 @@ object Database {
     )
 
   def create(xa: Transactor[IO], lockeIds: List[String]): IO[Int] = {
-    val password = Env[IO].get("DB_PASSWORD")
     val faker = new Faker()
     (
       createPersonalDetails(lockeIds, faker),
